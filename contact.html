@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact-Neutrino</title>
+ 
+</head>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #f5f5f5;
+  }
+
+  header {
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e50914;
+  }
+
+  .logo {
+    font-size: 36px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #e50914;
+    margin-right: auto;
+  }
+
+  nav a {
+    color: #f5f5f5;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: #e50914;
+  }
+
+  .content {
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  footer {
+    background-color: #1a1a1a;
+    color: #b3b3b3;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 2px solid #333;
+    margin-top: 20px;
+  }
+
+  .form-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #121212;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .form-container:hover {
+    transform: scale(1.02);
+  }
+
+  .form-container input, .form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #333;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+  }
+
+  .form-container input:focus, .form-container textarea:focus {
+    border-color: #e50914;
+    outline: none;
+    background-color: #333;
+  }
+
+  .form-container button {
+    background-color: #e50914;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+  }
+
+  .form-container button:hover {
+    background-color: #000000;
+  }
+
+  .form-container input::placeholder, .form-container textarea::placeholder {
+    color: #b3b3b3;
+  }
+
+  .form-container button:active {
+    transform: scale(0.98);
+  }
+
+  .suggestions {
+    position: absolute;
+    width: 100%;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 5px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100;
+    color: #f5f5f5;
+    display: none;
+  }
+
+  .suggestions div {
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .suggestions div:hover {
+    background-color: #333;
+  }
+
+  .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #e50914;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s;
+    display: none;
+  }
+
+  .back-to-top:hover {
+    background-color: #000000;
+  }
+
+  @media (max-width: 768px) {
+    .form-container {
+      max-width: 90%;
+    }
+    nav a {
+      font-size: 14px;
+    }
+  }
+</style>
+<body>
+
+<header>
+  
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="movies.html">Movies</a>
+    <a href="community.html">Community</a>
+    <a href="contact.html">Contact</a>
+    <a href="sign in.html">Sign in</a>
+    <a href="coming soon.html">Coming Soon</a>
+  </nav>
+</header>
+
+<div class="content">
+  <h1>Contact Us</h1>
+  <div class="form-container">
+    <form onsubmit="showMessage(event)">
+      <div style="position: relative;">
+        <input type="text" id="username" placeholder="Your Name" required oninput="showSuggestions(this.value, 'username')">
+        <div id="username-suggestions" class="suggestions"></div>
+      </div>
+      <div style="position: relative;">
+        <input type="email" id="email" placeholder="Your Email" required oninput="showSuggestions(this.value, 'email')">
+        <div id="email-suggestions" class="suggestions"></div>
+      </div>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  <div id="success-message" style="display:none; color: #e50914; margin-top: 20px;">
+    <p>Thank you for contacting us! We will get back to you soon.</p>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2024 Neutrino Gaming Hub. All rights reserved.</p>
+</footer>
+
+<button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+<script>
+  const usernames = ['gamer123', 'moviefan99', 'neutrinoUser', 'john_doe', 'jane_smith'];
+  const emails = ['example1@gmail.com', 'user123@yahoo.com', 'fan456@hotmail.com', 'john@example.com', 'jane.smith@outlook.com'];
+
+  function showSuggestions(query, field) {
+    let suggestions = [];
+    const suggestionBox = document.getElementById(field + '-suggestions');
+    
+    if (field === 'username') {
+      suggestions = usernames.filter(username => username.toLowerCase().includes(query.toLowerCase()));
+    } else if (field === 'email') {
+      suggestions = emails.filter(email => email.toLowerCase().includes(query.toLowerCase()));
+    }
+
+    if (query === '') {
+      suggestionBox.style.display = 'none';
+      return;
+    }
+
+    suggestionBox.innerHTML = suggestions.map(item => `<div onclick="selectSuggestion('${item}', '${field}')">${item}</div>`).join('');
+    suggestionBox.style.display = suggestions.length > 0 ? 'block' : 'none';
+  }
+
+
+  function selectSuggestion(suggestion, field) {
+    document.getElementById(field).value = suggestion;
+    document.getElementById(field + '-suggestions').style.display = 'none';
+  }
+
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+ 
+  function showMessage(event) {
+    event.preventDefault();
+    document.getElementById('success-message').style.display = 'block';
+    setTimeout(function() {
+      document.getElementById('success-message').style.display = 'none';
+    }, 5000);
+    event.target.reset();
+  }
+
+ 
+  window.onscroll = function() {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      document.querySelector('.back-to-top').style.display = "block";
+    } else {
+      document.querySelector('.back-to-top').style.display = "none";
+    }
+  };
+</script>
+
+</body>
+</html>

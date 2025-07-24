@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon-Neutrino</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: #f5f5f5;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #e50914;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: #f5f5f5;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #e50914;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .section {
+            padding: 2rem;
+        } 
+        
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .video-player {
+            flex: 3;
+            text-align: center;
+        }
+
+        .video-player video {
+            width: 80%;
+            max-height: 400px;
+            background: #000;
+            margin-left: 80px;
+            border:2px solid #e50914;
+            border-radius: 20px;
+        }
+
+        .list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            background: #1a1a1a;
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+            border: 2px solid #e50914;
+        }
+
+        .list-item img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+
+        .list-item:hover {
+            background: #e50914;
+        }
+
+        .list-item span {
+            color: #f5f5f5;
+            font-size: 18px;
+            font-family: 'Arial', sans-serif;
+        }
+        footer {
+      background-color: #1a1a1a;
+      color: #b3b3b3;
+      text-align: center;
+      padding: 10px 0;
+      border-top: 2px solid #333;
+      margin-top: 20px;
+    }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="community.html">Community</a>
+            <a href="contact.html">Contact</a>
+            <a href="sign in.html">Sign in</a>
+            <a href="coming soon.html">Coming Soon</a>
+          </nav>
+    </header>
+    <div class="content">
+        <h1>Coming Soon</h1>
+        <p>Explore trailers for upcoming games, movies, and seasons!</p>
+    </div>
+
+  
+    <section class="section">
+        <h2 style="text-align: right;margin-right: 7%;">Upcoming Games</h2>
+        <h2 style="text-align: left;">Trailers</h2>
+        <div class="container">
+            <div class="video-player">
+                <video id="game-video" controls>
+                    <source src="videos/kingdom.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="list" id="game-list">
+                <div class="list-item" data-video="videos/kingdom.mp4">
+                    <img src="images/kingdomc.jpg" alt="Kingdom Come II">
+                    <span>Kingdom Come: Deliverance II</span>
+                </div>
+                <div class="list-item" data-video="videos/footballmanager.mp4">
+                    <img src="images/football25.jpg" alt="Football Manager 25">
+                    <span>Football Manager 25</span>
+                </div>
+                <div class="list-item" data-video="videos/avowed.mp4">
+                    <img src="images/avowed.jpg" alt="Avowed">
+                    <span>Avowed</span>
+                </div>
+                <div class="list-item" data-video="videos/fable.mp4">
+                    <img src="images/fable.jpg" alt="Fable">
+                    <span>Fable</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <section class="section">
+      <h2 style="text-align: right;margin-right: 1%;">Upcoming Movies & Seasons</h2>
+      <h2 style="text-align: left;">Trailers</h2>
+        <div class="container">
+            <div class="video-player">
+                <video id="movie-video" controls>
+                    <source src="videos/superman.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <div class="list" id="movie-list">
+                <div class="list-item" data-video="videos/superman.mp4">
+                    <img src="images/superman1.jpg" alt="Superman">
+                    <span>Superman</span>
+                </div>
+                <div class="list-item" data-video="videos/captain.mp4">
+                    <img src="images/captainamerica.jpg" alt="Captain America">
+                    <span>Captain America: Brave New World</span>
+                </div>
+                <div class="list-item" data-video="videos/whatif.mp4">
+                    <img src="images/whatif.jpg" alt="What If...?">
+                    <span>What If...?</span>
+                </div>
+                <div class="list-item" data-video="videos/bighero.mp4">
+                    <img src="images/bighero6.jpg" alt="Big Hero 6">
+                    <span>Big Hero IV: The Series</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function setupVideoSwitching(sectionId, videoId) {
+            const list = document.getElementById(sectionId);
+            const video = document.getElementById(videoId);
+
+            list.addEventListener('click', (e) => {
+                if (e.target.closest('.list-item')) {
+                    const videoSrc = e.target.closest('.list-item').getAttribute('data-video');
+                    const source = video.querySelector('source');
+
+                    if (source.src !== videoSrc) {
+                        source.src = videoSrc;
+                        video.load();
+                        video.play();
+                    }
+                }
+            });
+        }
+
+        setupVideoSwitching('game-list', 'game-video');
+        setupVideoSwitching('movie-list', 'movie-video');
+    </script>
+    
+<footer>
+  <p>©2024 Neutrino Gaming and Entertainment Hub. All rights reserved.</p>
+</footer>
+</body>
+</html>

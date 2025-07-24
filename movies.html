@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies&Seasons-Neutrino</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #f5f5f5;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      color: #f5f5f5;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #e50914;
+    }
+
+    .logo {
+      font-size: 36px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #e50914;
+      margin-right: auto; 
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      color: #f5f5f5;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      color: #e50914;
+    }
+
+    .search-bar {
+      margin: 0;
+      padding: 10px;
+      width: 200px;  
+      background-color: #333;
+      color: #fff;
+      border:none;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .content1 {
+      text-align: center;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-top: 2px solid #e50914;
+      border-bottom: 2px solid #e50914;
+      margin: 20px auto;
+      max-width: 900px;
+    }
+
+    .content {
+      padding: 20px;
+      text-align:center;
+    }
+
+    .movie-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 6px;
+      padding: 20px;
+    }
+
+    .movie-card {
+      background-color: #1a1a1a;
+     
+      border-radius: 1px;
+      overflow:hidden;
+      text-align:left;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .movie-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .movie-card img {
+      width: 100%;
+      height: 50%;
+      object-fit:var();
+    }
+
+    .movie-info {
+      padding:10px;
+    }
+    .season-info {
+      padding:10px;
+    }
+
+    .movie-info h3 {
+      font-size: 16px;
+      margin-top: 5px 0 ;
+      color: #e50914; 
+    }
+
+    .movie-info p {
+      font-size: 14px;
+      margin: 10px 0;
+      color: #b3b3b3;
+    }
+
+    .movie-info button {
+      background-color: #0b3c52;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .movie-info button:hover {
+      background-color: #e50914;
+    }
+
+    .season-card .season-info h3 {
+      color: #e50914; 
+      margin-top: 5px 0;
+    }
+
+    .season-card .season-info button {
+      background-color: #0b3c52;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      
+    }
+
+    .season-card .season-info button:hover
+     {
+      background-color:#e50914;
+    }
+    .season-info p {
+      font-size: 14px;
+      margin: 10px 0;
+      color: #b3b3b3;
+    }
+    .movie-info .datebutton
+    {  background-color:transparent;
+        font-size: 8px;
+      background: none;
+      border: 2px solid grey;
+      border-radius: 5px;
+      color:grey;
+    }
+    .movie-info .datebutton:hover
+    {
+      background-color:transparent;
+    }
+ .movie-card.season-card .season-info .datebutton
+    {  background-color:transparent;
+       font-size:8px;
+      background: none;
+      border: 2px solid grey;
+      border-radius: 5px;
+      color:grey;
+    }
+
+   .movie-card.season-card.season-info .datebutton:hover
+    {
+      background-color:transparent;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: #b3b3b3;
+      text-align: center;
+      padding: 10px 0;
+      border-top: 2px solid #333;
+    
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="movies.html">Movies</a>
+    <a href="community.html">Community</a>
+    <a href="contact.html">Contact</a>
+    <a href="sign in.html">Sign in</a>
+    <a href="coming soon.html">Coming Soon</a>
+  </nav>
+  <input type="text" id="search-bar" class="search-bar" placeholder="Search Movies & Seasons..." oninput="searchContent()" />
+</header>
+
+<div class="content">
+  <h1 style="text-align: left;">Movies</h1>
+  <div class="movie-section" id="movie-section">
+    <div class="movie-card">
+      <img src="images/endgame.jpg" alt="Avengers End-Game">
+      <div class="movie-info">
+        <h3>Avengers End-Game</h3>
+        <button onclick="playmovie(' Avengers End-Game')">Watch</button>
+        <button class="datebutton">2019</button>
+        <p>Heroes unite for a final battle to undo Thanos' devastation.</p>
+        
+      </div>
+    </div>
+    <div class="movie-card">
+        <img src="images/tdr.jpg" alt="the dark Knight">
+        <div class="movie-info">
+          <h3>The Dark Knight</h3>
+          <button onclick="playmovie(' The Dark Knight')">Watch</button>
+          <button class="datebutton">2012</button>
+          <p>Batman faces chaos incarnate in the form of the Joker.</p>
+        </div>
+      </div>
+  
+    <div class="movie-card">
+        <img src="images/manofsteel.jpg" alt="man of steel">
+        <div class="movie-info">
+          <h3>Man of Steel</h3>
+          <button onclick="playmovie(' Man of steel')">Watch</button>
+          <button class="datebutton">2013</button>
+          <p> Superman grapples with his alien heritage and humanity's trust.</p>
+        </div>
+      </div>
+      <div class="movie-card">
+          <img src="images/venom.jpg" alt="venom">
+          <div class="movie-info">
+            <h3>Venom</h3>
+            <button onclick="playmovie(' Venom')">Watch</button>
+            <button class="datebutton">2018</button>
+            <p> A journalist bonds with an alien symbiote to become an antihero.</p>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img src="images/cars4.jpg" alt="cars 4">
+          <div class="movie-info">
+            <h3>Cars 4</h3>
+            <button onclick="playmovie(' Cars 4')">Watch</button>
+            <button class="datebutton">2022</button>
+            <p>Lightning McQueen embarks on a thrilling new racing adventure.</p>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img src="images/kungfu.jpg" alt=" Kung fu panda 4">
+          <div class="movie-info">
+            <h3>Kung Fu Panda 4</h3>
+            <button onclick="playmovie('kung fu panda 4')">Watch</button>
+            <button class="datebutton">2024</button>
+            <p> o discovers his ultimate destiny while uniting pandas.</p>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img src="images/oblivion.jpg" alt="Oblivion">
+          <div class="movie-info">
+            <h3>Oblivion</h3>
+            <button onclick="playmovie(' Oblivion')">Watch</button>
+            <button class="datebutton">2013</button>
+            <p>A drone repairman unravels Earth's hidden truth after a war.</p>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img src="images/interstellar.jpg" alt="interstellar">
+          <div class="movie-info">
+            <h3>Interstellar</h3>
+            <button onclick="playmovie(' Interstellar')">Watch</button>
+            <button class="datebutton">2014</button>
+            <p>A space expedition seeks humanity's survival beyond the stars.</p>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img src="images/inception.jpg" alt="inception">
+          <div class="movie-info">
+            <h3>Inception</h3>
+            <button onclick="playmovie(' Inception')">Watch</button>
+            <button class="datebutton">2010</button>
+            <p>A thief infiltrates dreams to plant ideas in people's minds.</p>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img src="images/arrival.jpg" alt="arrival">
+          <div class="movie-info">
+            <h3>Arrival</h3>
+            <button onclick="playmovie(' Arrival')">Watch</button>
+            <button class="datebutton">2016</button>
+            <p>A linguist deciphers alien language to unlock humanity's future.</p>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img src="images/flash.jpg" alt="flash">
+          <div class="movie-info">
+            <h3>Flash</h3>
+            <button onclick="playmovie(' Flash')">Watch</button>
+            <button class="datebutton">2024</button>
+            <p>Barry Allen rewrites reality, facing time-bending consequences.</p>
+          </div>
+        </div>
+        <div class="movie-card">
+          <img src="images/joker.jpg" alt="joker">
+          <div class="movie-info">
+            <h3>Joker</h3>
+            <button onclick="playmovie(' Joker')">Watch</button>
+            <button class="datebutton">2019</button>
+            <p>A troubled man's descent into madness spawns Gotham's infamous villain.</p>
+          </div>
+        </div>
+
+   
+  </div>
+
+   
+
+
+
+
+
+
+
+</div>
+
+  <h1 style="text-align: left;">Seasons</h1>
+  <div class="movie-section">
+    <div class="movie-card season-card" id="season-1">
+      <img src="images/st.jpg" alt="stranger things">
+      <div class="season-info">
+        <h3>Stranger Things</h3>
+        <button onclick="playseason(' Strsnger things')">Watch</button>
+        <button class="datebutton" > SS 4 </button>
+      
+        <p>A group of kids faces supernatural forces in a mysterious small town.</p>
+      </div>
+    </div>
+    <div class="movie-card season-card">
+        <img src="images/loki.jpg" alt="loki">
+        <div class="season-info">
+          <h3>Loki</h3>
+          <button onclick="playseason(' Loki')">Watch</button>
+          <button class="datebutton">SS 2</button>
+          <p> The King of Mischief embarks on a time-bending journey with the TVA.</p>
+        </div>
+      </div>
+      <div class="movie-card season-card">
+        <img src="images/moonknight.jpg" alt="moon knight">
+        <div class="season-info">
+          <h3>Moon Knight</h3>
+          <button onclick="playseason(' Moon knight')">Watch</button>
+          <button class="datebutton">SS 1</button>
+          <p>Swing through NYC as the iconic hero in this thrilling open-world adventure.</p>
+        </div>
+      </div>
+      <div class="movie-card season-card">
+        <img src="images/dark.jpg" alt="dark">
+        <div class="season-info">
+          <h3>Dark</h3>
+          <button onclick="playseason(' Dark')">Watch</button>
+          <button class="datebutton">SS 3</button>
+          <p>A man battles dissociative identity disorder and Egyptian gods.</p>
+        </div>
+      </div>
+      <div class="movie-card season-card">
+        <img src="images/peakyblinders.jpg" alt="peaky blinders">
+        <div class="season-info">
+          <h3>Peaky Blinders</h3>
+          <button onclick="playseason(' Peaky blinders')">Watch</button>
+          <button class="datebutton">SS 6</button>
+          <p> A ruthless gang rises to power in post-WWI Birmingham.</p>
+        </div>
+      </div>
+      <div class="movie-card season-card">
+        <img src="images/bb.jpg" alt="breaking bad">
+        <div class="season-info">
+          <h3>Breaking Bad</h3>
+          <button onclick="playseason(' Breaking bad')">Watch</button>
+          <button class="datebutton">SS 5</button>
+          <p></p> chemistry teacher turns to cooking meth to secure his family's future.</p>
+        </div>
+      </div>
+      
+      <div class="movie-card season-card">
+        <img src="images/lostinspace.jpg" alt="lost in space">
+        <div class="season-info">
+          <h3>Lost in Space</h3>
+          <button onclick="playseason(' Lost in space')">Watch</button>
+          <button class="datebutton">SS 3</button>
+          <p>A stranded family navigates survival on an alien planet.</p>
+        </div>
+      </div>
+      <div class="movie-card season-card">
+        <img src="images/allofusaredead.jpg" alt="all of us are dead">
+        <div class="season-info">
+          <h3> All of us are Dead </h3>
+          <button onclick="playseason(' All of are us dead')">Watch</button>
+          <button class="datebutton">SS 1</button>
+          <p>Students fight for survival during a high school zombie outbreak.</p>
+        </div>
+      </div>
+      <div class="movie-card season-card">
+        <img src="images/moneyheist.jpg" alt="money heist">
+        <div class="season-info">
+          <h3>Money Heist</h3>
+          <button onclick="playseason(' Money heist')">Watch</button>
+          <button class="datebutton">SS 5</button>
+          <p> A criminal mastermind orchestrates daring heists in Spain.</p>
+        </div>
+      </div>
+      <div class="movie-card season-card">
+        <img src="images/bcs.jpg" alt="better call saul">
+        <div class="season-info">
+          <h3>Better Call Saul  </h3>
+          <button onclick="playseason(' Better call saul')">Watch</button>
+          <button class="datebutton">SS 6</button>
+          <p>A con man transforms into the shady lawyer Saul Goodman.</p>
+        </div>
+      </div>
+      <div class="movie-card season-card">
+        <img src="images/squidgame.jpg" alt="squid game">
+        <div class="season-info">
+          <h3>Squid Game  </h3>
+          <button onclick="playseason(' Squid game')">Watch</button>
+          <button class="datebutton">SS 1</button>
+          <p>Contestants risk their lives in deadly games for a huge cash prize.</p>
+        </div>
+      </div>
+    <div class="movie-card season-card">
+      <img src="images/got.jpg" alt="Game of Thrones">
+      <div class="season-info">
+        <h3>Game of Thrones</h3>
+        <button onclick="playseason(' Game of Thrones')">Watch</button>
+        <button class="datebutton">SS 8</button>
+        <p>Noble families vie for control of the Iron Throne in Westeros.</p>
+      </div>
+    </div>
+  
+  </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<footer>
+  <p>©2024 Neutrino Gaming and Entertainment Hub. All rights reserved.</p>
+</footer>
+
+<script>
+  function playmovie(movieName) {
+    alert("Now playing: " + movieName);
+  }
+
+  function playseason(seasonName) {
+    alert("Now playing:" + seasonName);
+  }
+  function searchContent() {
+    const searchValue = document.getElementById('search-bar').value.toLowerCase();
+
+
+    const movieCards = document.querySelectorAll('.movie-card');
+    const movieTitles = document.querySelectorAll('.movie-info h3');
+
+ 
+    const seasonCards = document.querySelectorAll('.season-card');
+    const seasonTitles = document.querySelectorAll('.season-info h3');
+
+   
+    const filterItems = (cards, titles) => {
+        cards.forEach((card, index) => {
+            const title = titles[index]?.textContent.toLowerCase();
+            if (title && title.includes(searchValue)) {
+                card.style.display = 'block';
+                titles[index].style.display = 'block'; 
+                const img = card.querySelector('img');
+                if (img) img.style.display = 'none';
+            } else {
+                card.style.display = 'none'; 
+            }
+        });
+
+       
+        if (!searchValue) {
+            cards.forEach(card => {
+                card.style.display = 'block'; 
+                const img = card.querySelector('img');
+                if (img) img.style.display = 'block'; 
+            });
+        }
+    };
+
+    
+   
+    filterItems(movieCards, movieTitles);
+    filterItems(seasonCards, seasonTitles);
+}
+ 
+
+
+ 
+
+</script>
+
+</body>
+</html>
+

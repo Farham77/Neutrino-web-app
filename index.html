@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home-Neutrino</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #121212;
+      color: #f5f5f5;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      color: #f5f5f5;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #e50914;
+    }
+
+    .logo {
+      font-size: 36px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #e50914;
+      margin-right: auto; 
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      color: #f5f5f5;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      color: #e50914;
+    }
+
+    .search-bar {
+      margin: 0;
+      padding: 10px;
+      width: 200px;  
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .content1 {
+      text-align: center;
+      background-color: #1a1a1a;
+      padding: 20px;
+      border-top: 2px solid #e50914;
+      border-bottom: 2px solid #e50914;
+      margin: 20px auto;
+      max-width: 900px;
+    }
+
+    .content {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .games-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .game-card {
+      background-color: #1a1a1a;
+      border: 2px solid #333;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .game-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .game-card img {
+      width: 100%;
+      height: 120px;
+      object-fit:cover;
+    }
+
+    .game-info {
+      padding: 10px;
+    }
+
+    .game-info h3 {
+      font-size: 16px;
+      margin: 5px 0;
+      color: #e50914;
+    }
+
+    .game-info p {
+      font-size: 14px;
+      margin: 10px 0;
+      color: #b3b3b3;
+    }
+
+    .game-info button {
+      background-color: #e50914;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 12px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .game-info button:hover {
+      background-color: #b20710;
+    }
+
+    .premium-game-card .game-info h3 {
+      color: #ffd700; 
+    }
+
+    .premium-game-card .game-info button {
+      background-color: #ffd700;
+      color: #121212;
+      font-weight: bold;
+      border: none;
+    }
+
+    .premium-game-card .game-info button:hover {
+      background-color: #e6c200;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: #b3b3b3;
+      text-align: center;
+      padding: 10px 0;
+      border-top: 2px solid #333;
+      margin-top: 20px;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">NEUTRINO</div>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="movies.html">Movies</a>
+    <a href="community.html">Community</a>
+    <a href="contact.html">Contact</a>
+    <a href="sign in.html">Sign in</a>
+    <a href="coming soon.html">Coming Soon</a>
+  </nav>
+  <input type="text" id="search-bar" class="search-bar" placeholder="Search Games..." oninput="searchGames()" />
+</header>
+
+<div class="content1">
+  <p>Your ultimate Hub for Entertainment!</p>
+</div>
+
+<div class="content">
+  <h1 style="text-align: left;">Free Games</h1>
+  <div class="games-section" id="games-section">
+    <div class="game-card">
+      <img src="images/redr.jpg" alt="Red Dead Redemption 2">
+      <div class="game-info">
+        <h3>Red Dead Redemption 2</h3>
+        <button onclick=">installGame('Red Dead Redemption 2')">Install</button>
+        <p>Embark on an epic journey through the wild west.</p>
+      </div>
+    </div>
+    <div class="game-card">
+        <img src="images/forza.jpg" alt="Forza Horizon 2">
+        <div class="game-info">
+          <h3>Forza Horizon 2</h3>
+          <button onclick="installGame('Forza Horizon 2')">Install</button>
+          <p>Experience stunning driving simulations and breathtaking scenery.</p>
+        </div>
+      </div>
+  
+    <div class="game-card">
+        <img src="images/amongus.jpg" alt="Among Us">
+        <div class="game-info">
+          <h3>Among Us</h3>
+          <button onclick="installGame('Among Us')">Install</button>
+          <p> Find the impostor or sabotage your way to victory in Among Us.</p>
+        </div>
+      </div>
+      <div class="game-card">
+          <img src="images/valorant.jpg" alt="valorant">
+          <div class="game-info">
+            <h3>Valorant</h3>
+            <button onclick="installGame('Valorant')">Install</button>
+            <p>A tactical hero-based FPS blending precise shooting with unique agent abilities.</p>
+          </div>
+        </div>
+        <div class="game-card">
+          <img src="images/cod.jpg" alt="cod">
+          <div class="game-info">
+            <h3>Call Of Duty</h3>
+            <button onclick="installGame('Call Of Duty')">Install</button>
+            <p>Realistic Multiplayer game.</p>
+          </div>
+        </div>
+        <div class="game-card">
+          <img src="images/walkingdead.jpg" alt="walking dead">
+          <div class="game-info">
+            <h3>The Walking Dead</h3>
+            <button onclick="installGame('The Walking Dead')">Install</button>
+            <p> 2016 episodic graphic adventure video game based on the comic book.</p>
+          </div>
+        </div>
+        <div class="game-card">
+          <img src="images/stalker.jpg" alt="stalker">
+          <div class="game-info">
+            <h3>S.T.A.L.K.E.R</h3>
+            <button onclick="installGame('S.T.A.L.K.E.R')">Install</button>
+            <p>A haunting survival FPS set in the radioactive and mysterious Zone.</p>
+          </div>
+        </div>
+        <div class="game-card">
+          <img src="images/hogwarts.jpg" alt="hogwarts legacy">
+          <div class="game-info">
+            <h3>Hogwarts Legacy</h3>
+            <button onclick="installGame('Hogwarts Legacy')">Install</button>
+            <p>An immersive RPG that lets you explore the wizarding world of Hogwarts.</p>
+          </div>
+        </div>
+        <div class="game-card">
+          <img src="images/deltaforce.jpg" alt="delta force">
+          <div class="game-info">
+            <h3>Delta Force</h3>
+            <button onclick="installGame('Delta Force')">Install</button>
+            <p>Engage in intense military operations with tactical gameplay in diverse environments.</p>
+          </div>
+        </div>
+        <div class="game-card">
+          <img src="images/marvelrivals.jpg" alt="marvel rivals">
+          <div class="game-info">
+            <h3>Marvel Rivals</h3>
+            <button onclick="installGame('Marvel Rivals')">Install</button>
+            <p>An action-packed brawler featuring iconic Marvel superheroes and villains.</p>
+          </div>
+        </div>
+        <div class="game-card">
+          <img src="images/karatesurvivor.jpg" alt="karate survivor">
+          <div class="game-info">
+            <h3>Karate Survivor</h3>
+            <button onclick="installGame('Karate Survivor')">Install</button>
+            <p>A gritty martial arts survival game with intense combat challenges.</p>
+          </div>
+        </div>
+        <div class="game-card">
+          <img src="images/kingdom.jpg" alt="kingdom come">
+          <div class="game-info">
+            <h3>Kingdom Come</h3>
+            <button onclick="installGame('Kingdom Come')">Install</button>
+            <p> A realistic medieval RPG focused on historical accuracy and immersive storytelling.</p>
+          </div>
+        </div>
+
+   
+  </div>
+
+   
+
+
+
+
+
+
+
+</div>
+
+  <h1 style="text-align: left;">Premium Games</h1>
+  <div class="games-section">
+    <div class="game-card premium-game-card">
+      <img src="images/cyberpunk.jpg" alt="Cyberpunk 2077">
+      <div class="game-info">
+        <h3>Cyberpunk 2077</h3>
+        <button onclick="notifyPaymentError('Cyberpunk 2077')">$14.99</button>
+        <p>Immerse yourself in a sprawling futuristic open-world.</p>
+      </div>
+    </div>
+    <div class="game-card premium-game-card">
+        <img src="images/fifa25.jpg" alt="fifa 25">
+        <div class="game-info">
+          <h3>Fifa 25</h3>
+          <button onclick="notifyPaymentError('Fifa 25')">$10.99</button>
+          <p> The latest installment in the beloved football simulation series with enhanced realism.</p>
+        </div>
+      </div>
+      <div class="game-card premium-game-card">
+        <img src="images/spiderman.jpg" alt="spiderman">
+        <div class="game-info">
+          <h3>Spider-man</h3>
+          <button onclick="notifyPaymentError('Spider-man')">$13.99</button>
+          <p>Swing through NYC as the iconic hero in this thrilling open-world adventure.</p>
+        </div>
+      </div>
+      <div class="game-card premium-game-card">
+        <img src="images/superman.jpg" alt="superman">
+        <div class="game-info">
+          <h3>Super-man</h3>
+          <button onclick="notifyPaymentError('Super-man')">$8.99</button>
+          <p>Soar through Metropolis as the Man of Steel in an epic action experience.</p>
+        </div>
+      </div>
+      <div class="game-card premium-game-card">
+        <img src="images/assasin.jpg" alt="assasin creed">
+        <div class="game-info">
+          <h3>Assasin Creed</h3>
+          <button onclick="notifyPaymentError('Assasin Creed')">$26.99</button>
+          <p>A historical action-adventure series exploring iconic eras and assassins' legacies.</p>
+        </div>
+      </div>
+      <div class="game-card premium-game-card">
+        <img src="images/gta5.jpg" alt="gta 5">
+        <div class="game-info">
+          <h3>Grand Theft Auto 5</h3>
+          <button onclick="notifyPaymentError('Grand Theft Auto 5')">$9.99</button>
+          <p>An open-world crime saga with high-octane heists and dynamic storytelling.</p>
+        </div>
+      </div>
+      <div class="game-card premium-game-card">
+        <img src="images/godsofwar.jpg" alt="gods of war">
+        <div class="game-info">
+          <h3>Gods of War  </h3>
+          <button onclick="notifyPaymentError('Gods of War')">$33.99</button>
+          <p>A mythological epic blending brutal combat and deep emotional narratives.</p>
+        </div>
+      </div>
+      <div class="game-card premium-game-card">
+        <img src="images/thewitcher.jpg" alt="the witcher">
+        <div class="game-info">
+          <h3>The Witcher  </h3>
+          <button onclick="notifyPaymentError('The Witcher')">$13.99</button>
+          <p>A dark fantasy RPG following Geralt, a monster hunter, on epic adventures.</p>
+        </div>
+      </div>
+      <div class="game-card premium-game-card">
+        <img src="images/nfs24.jpg" alt="nfs 24">
+        <div class="game-info">
+          <h3>Need for Speed 24</h3>
+          <button onclick="notifyPaymentError('Need for Speed 24')">$19.99</button>
+          <p> The newest adrenaline-fueled street racing installment in the Need for Speed series.</p>
+        </div>
+      </div>
+      <div class="game-card premium-game-card">
+        <img src="images/ghost.jpg" alt="ghosts of tsushima">
+        <div class="game-info">
+          <h3>Ghosts Of Tsushima  </h3>
+          <button onclick="notifyPaymentError('Ghosts Of Tsushima ')">$17.99</button>
+          <p>A breathtaking samurai action game set in feudal Japan.</p>
+        </div>
+      </div>
+      <div class="game-card premium-game-card">
+        <img src="images/horizon.jpg" alt="horizon zero dawn">
+        <div class="game-info">
+          <h3>Horizon Zero Dawns  </h3>
+          <button onclick="notifyPaymentError('Horizon Zero Dawns')">$29.99</button>
+          <p>A futuristic RPG featuring robotic beasts and a stunning open world.</p>
+        </div>
+      </div>
+    <div class="game-card premium-game-card">
+      <img src="images/elden.ring" alt="elden ring">
+      <div class="game-info">
+        <h3>Elden Ring</h3>
+        <button onclick="notifyPaymentError('Elden Ring')">$49.99</button>
+        <p>A dark fantasy RPG by FromSoftware blending epic lore and challenging combat.</p>
+      </div>
+    </div>
+  
+  </div>
+  </div>
+</div>
+
+<footer>
+  <p>©2024 Neutrino Gaming and Entertainment Hub. All rights reserved.</p>
+</footer>
+
+<script>
+  function installGame(gameName) {
+    alert("Now installing " + gameName);
+  }
+
+  function notifyPaymentError(gameName) {
+    alert("Online payment is not available at the moment. Please try again later.");
+  }
+
+  function searchGames() {
+    const searchValue = document.getElementById('search-bar').value.toLowerCase();
+    const gameCards = document.querySelectorAll('.game-card');
+    const gameTitles = document.querySelectorAll('.game-info h3');
+    let found = false;
+
+    gameCards.forEach((card, index) => {
+      const gameTitle = gameTitles[index].textContent.toLowerCase();
+
+      if (gameTitle.includes(searchValue)) {
+        card.style.display = 'block';  
+        gameTitles[index].style.display = 'block';  
+        card.querySelector('img').style.display = 'none';  
+        found = true;
+      } else {
+        card.style.display = 'none';  
+      }
+    });
+
+    if (!searchValue) {
+      gameCards.forEach(card => {
+        card.style.display = 'block';  
+        card.querySelector('img').style.display = 'block';  
+      });
+    }
+  }
+</script>
+
+</body>
+</html>
